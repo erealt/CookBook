@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="642dp"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="15dp"
+            android:src="@drawable/logo_tenedores" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="¡Bienvenido a CookBook!"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/txtUsuario"
+            style="@style/TextAppearance.AppCompat.Body2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginRight="35dp"
+            android:hint="Usuario"
+            android:maxLength="250"
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/txtemail"
+            style="@style/TextAppearance.AppCompat.Body2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginRight="35dp"
+            android:ems="10"
+            android:hint="Correo electrónico"
+            android:inputType="textEmailAddress"
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/txtpassw1"
+            style="@style/TextAppearance.AppCompat.Body2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginRight="35dp"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:maxLength="12"
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/txtpassw2"
+            style="@style/TextAppearance.AppCompat.Body2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginRight="35dp"
+            android:hint="Confirme contraseña"
+            android:inputType="textPassword"
+            android:maxLength="12"
+            android:textSize="13sp" />
+
+        <Button
+            android:id="@+id/btnGuardarUsuario"
+            style="@style/TextAppearance.AppCompat.Body2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:drawableLeft="@drawable/ic_save"
+            android:text="Registrarme"
+            android:textAllCaps="false"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+</LinearLayout>
