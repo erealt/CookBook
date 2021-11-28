@@ -46,7 +46,7 @@ public class registroUsuarios extends AppCompatActivity {
                 }
                 else if (!PatternsCompat.EMAIL_ADDRESS.matcher(txtEmail.getText()).matches()){
                     Toast.makeText(getApplicationContext(), "El correo no es valido", Toast.LENGTH_SHORT).show();
-
+                    //se comprueba si el email es un email valido
                 }
                 //comprueba que las contraseñas coincidan
                 else if(!(txtPass1.getText().toString().equals(txtPass2.getText().toString()))){
