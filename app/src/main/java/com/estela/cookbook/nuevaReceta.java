@@ -53,17 +53,25 @@ public class nuevaReceta extends AppCompatActivity {
         btnGuardarReceta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+              /*  String Sporcion = txtPorciones.getText().toString();
+                String Stiempo = txtPorciones.getText().toString();
+                if (Sporcion.equals(" ") || Stiempo.equals(" ")) {
+                    Toast.makeText(getApplicationContext(), "Rellene el tiempo y las personas", Toast.LENGTH_SHORT).show();
+
+                } else {*/
                 String receta = txtNombreReceta.getText().toString();
+
                 int porcion = Integer.parseInt(String.valueOf(txtPorciones.getText()));
                 int tiempoP = Integer.parseInt(String.valueOf(txttiempoPreparacion.getText()));
                 String dificultad = spDificultad.getSelectedItem().toString();
                 String ingredientes = txtIngredientes.getText().toString();
                 String preparacion = txtProcedimiento.getText().toString();
                 String categoria = spCategorias.getSelectedItem().toString();
-                int idCategoria = (int) spCategorias.getSelectedItemId(), fkCategoria = idCategoria+1;;
+                int idCategoria = (int) spCategorias.getSelectedItemId(), fkCategoria = idCategoria + 1;
+
                 int foto = 0;
 
-                switch (categoria){
+                switch (categoria) {
                     case "Bebidas":
                         foto = R.drawable.bebidas;
                         break;
@@ -93,14 +101,20 @@ public class nuevaReceta extends AppCompatActivity {
                         break;
                 }
 
-                SharedPreferences sharedPreferences = getSharedPreferences("idUsuario", Context.MODE_PRIVATE);
-                int idUsuario = sharedPreferences.getInt("idUsuario", 0);
-                conn.nuevaReceta(receta, fkCategoria, dificultad, tiempoP, porcion, ingredientes, preparacion, foto, idUsuario);
 
-                Toast.makeText(getApplicationContext(), "Receta guardada exitosamente", Toast.LENGTH_SHORT).show();
-                finish();
-            }
+
+                    SharedPreferences sharedPreferences = getSharedPreferences("idUsuario", Context.MODE_PRIVATE);
+                    int idUsuario = sharedPreferences.getInt("idUsuario", 0);
+                    conn.nuevaReceta(receta, fkCategoria, dificultad, tiempoP, porcion, ingredientes, preparacion, foto, idUsuario);
+
+                    Toast.makeText(getApplicationContext(), "Receta guardada exitosamente", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+           // }
         });
 
-    }
+
+
+
+}
 }
