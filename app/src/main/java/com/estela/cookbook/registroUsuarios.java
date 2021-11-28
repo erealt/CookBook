@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.util.PatternsCompat;
 
 import java.util.regex.Pattern;
 
@@ -32,6 +33,7 @@ public class registroUsuarios extends AppCompatActivity {
         txtPass2 = (EditText) findViewById(R.id.txtpassw2);
         btnRegistrar = (Button)findViewById(R.id.btnGuardarUsuario);
 
+
         btnRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,6 +42,10 @@ public class registroUsuarios extends AppCompatActivity {
                 if(txtUser.getText().toString().equals("") | txtEmail.getText().toString().equals("") |
                         txtPass1.getText().toString().equals("") | txtPass2.getText().toString().equals("")){
                     Toast.makeText(getApplicationContext(), "Existen campos vacíos", Toast.LENGTH_SHORT).show();
+
+                }
+                else if (!PatternsCompat.EMAIL_ADDRESS.matcher(txtEmail.getText()).matches()){
+                    Toast.makeText(getApplicationContext(), "El correo no es valido", Toast.LENGTH_SHORT).show();
 
                 }
                 //comprueba que las contraseñas coincidan
@@ -68,6 +74,8 @@ public class registroUsuarios extends AppCompatActivity {
                 }
             }
         });
+
     }
+
 }
 
