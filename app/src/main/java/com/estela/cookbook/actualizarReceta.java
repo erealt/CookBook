@@ -122,49 +122,55 @@ public class actualizarReceta extends AppCompatActivity {
         btnActualizarReceta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String receta = txtNombreReceta.getText().toString();
-                int porcion = Integer.parseInt(String.valueOf(txtPorciones.getText()));
-                int tiempoP = Integer.parseInt(String.valueOf(txttiempoPreparacion.getText()));
-                String dificultad = spDificultad.getSelectedItem().toString();
-                String ingredientes = txtIngredientes.getText().toString();
-                String preparacion = txtProcedimiento.getText().toString();
-                String categoria = spCategorias.getSelectedItem().toString();
-                int idCategoria = (int) spCategorias.getSelectedItemId(), fkCategoria = idCategoria+1;;
-                int foto = 0;
+                if (txtPorciones.getText().toString().equals("") || txttiempoPreparacion.getText().toString().equals("")) {
+                    Toast.makeText(getApplicationContext(), "Rellena las personas y el tiempo", Toast.LENGTH_SHORT).show();
 
-                switch (categoria){
-                    case "Bebidas":
-                        foto = R.drawable.bebidas;
-                        break;
+                } else {
+                    String receta = txtNombreReceta.getText().toString();
+                    int porcion = Integer.parseInt(String.valueOf(txtPorciones.getText()));
+                    int tiempoP = Integer.parseInt(String.valueOf(txttiempoPreparacion.getText()));
+                    String dificultad = spDificultad.getSelectedItem().toString();
+                    String ingredientes = txtIngredientes.getText().toString();
+                    String preparacion = txtProcedimiento.getText().toString();
+                    String categoria = spCategorias.getSelectedItem().toString();
+                    int idCategoria = (int) spCategorias.getSelectedItemId(), fkCategoria = idCategoria + 1;
+                    ;
+                    int foto = 0;
 
-                    case "Ensaladas":
-                        foto = R.drawable.ensaladas;
-                        break;
+                    switch (categoria) {
+                        case "Bebidas":
+                            foto = R.drawable.bebidas;
+                            break;
 
-                    case "Pastas":
-                        foto = R.drawable.pastas;
-                        break;
+                        case "Ensaladas":
+                            foto = R.drawable.ensaladas;
+                            break;
 
-                    case "Platos fuertes":
-                        foto = R.drawable.platosfuertes;
-                        break;
+                        case "Pastas":
+                            foto = R.drawable.pastas;
+                            break;
 
-                    case "Sopa":
-                        foto = R.drawable.sopas;
-                        break;
+                        case "Platos fuertes":
+                            foto = R.drawable.platosfuertes;
+                            break;
 
-                    case "Guarniciones":
-                        foto = R.drawable.guarnicion;
-                        break;
+                        case "Sopa":
+                            foto = R.drawable.sopas;
+                            break;
 
-                    case "Postres":
-                        foto = R.drawable.postres;
-                        break;
+                        case "Guarniciones":
+                            foto = R.drawable.guarnicion;
+                            break;
+
+                        case "Postres":
+                            foto = R.drawable.postres;
+                            break;
+                    }
+
+                    conn.actualizarReceta(String.valueOf(idReceta), receta, fkCategoria, dificultad, tiempoP, porcion, ingredientes, preparacion, foto);
+                    Toast.makeText(getApplicationContext(), "La receta se ha actualizado correctamente ", Toast.LENGTH_SHORT).show();
+                    finish();
                 }
-
-                conn.actualizarReceta(String.valueOf(idReceta), receta, fkCategoria, dificultad, tiempoP, porcion, ingredientes, preparacion, foto);
-                Toast.makeText(getApplicationContext(), "La receta se ha actualizado correctamente ", Toast.LENGTH_SHORT).show();
-                finish();
             }
         });
     }
